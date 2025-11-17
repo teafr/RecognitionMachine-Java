@@ -4,9 +4,7 @@ public class TestAutomaton {
 
     public enum State { S, ONE, TWO, THREE, F }
 
-    /**
-     * @return state (F - found, 0/1/2/3 - current position)
-     */
+    /** @return state (F - found, 0/1/2/3 - current position) */
     public static State process(String input) {
         State state = State.S;
 
