@@ -9,22 +9,8 @@ public class TestAutomaton {
         State state = State.S;
 
         for (char character : input.toCharArray()) {
-            switch (state) {
-                case S:
-                    state = (character == 'T') ? State.ONE : State.S;
-                    break;
-                case ONE:
-                    state = (character == 'E') ? State.TWO : (character == 'T') ? State.ONE : State.S;
-                    break;
-                case TWO:
-                    state = (character == 'S') ? State.THREE : (character == 'T') ? State.ONE : State.S;
-                    break;
-                case THREE:
-                    state = (character == 'T') ? State.F : (character == 'T') ? State.ONE : State.S;
-                    break;
-                case F:
-                    state = State.F;
-            }
+            state = nextState(state, character);
+            if (state == State.F) break;
         }
         return state;
     }
